@@ -40,11 +40,21 @@ var activitySchema = mongoose.Schema({
 
 var Activity = mongoose.model('activity', activitySchema);
 
+var daySchema = mongoose.Schema({
+  number: Number,
+  hotel: {type: mongoose.Schema.Types.ObjectId, ref: 'Hotel'},
+  restaurants: [{type: mongoose.Schema.Types.ObjectId, ref: 'Restaurant'}],
+  activities: [{type: mongoose.Schema.Types.ObjectId, ref: 'Activity'}]
+});
+
+var Day = mongoose.model('day', daySchema);
+
 var models = {
   Hotel: Hotel,
   Place: Place,
   Restaurant: Restaurant,
-  Activity: Activity
+  Activity: Activity,
+  Day: Day
 };
 
 var _conn;

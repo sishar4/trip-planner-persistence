@@ -51,6 +51,8 @@ app.get('/error', function(req, res, next){
 
 });
 
+app.use('/api/days', require('./routes/api/days'));
+
 app.use(function(req, res, next){
   var error = new Error('Page Not Found');
   error.status = 404;

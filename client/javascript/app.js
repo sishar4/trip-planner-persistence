@@ -1,6 +1,9 @@
 $(function() {
     var fn = function(map, marker){
-      new Tripplanner([], map, marker, attractions);
+      $.get('/api/days')
+        .then(function(days){
+          new Tripplanner(days, map, marker);
+        });
     }
     initialize_gmaps(fn);
 });

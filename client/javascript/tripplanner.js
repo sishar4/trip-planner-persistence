@@ -138,6 +138,7 @@ Tripplanner.prototype.removeItemFromDay = function(item){
 Tripplanner.prototype.renderDayPicker = function(){
 
     $('#dayPicker').empty();
+    console.log('Days ', this.days);
     this.days.forEach(function(day, index){
       var link = $('<a />').html(index + 1);
       var li = $('<li />').append(link);
